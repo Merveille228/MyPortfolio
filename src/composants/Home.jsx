@@ -8,6 +8,7 @@ import {
   Coffee,
   Heart,
 } from "lucide-react";
+import moiImage from "../assets/moi.png"
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
         <div className="cercle" >
           <img
             className="absolute w-50 h-100 top-20 right-0 rounded-3xl -z-50"
-            src="src\assets\moi.png"
+            src={moiImage}
             alt="photo"
           />
         </div>
@@ -77,51 +78,96 @@ export default function Home() {
 
 {/* ============================================================= */}
       {/* projet */}
-      <section
-        id="projets"
-        className="h-screen ml-5"
-      >
-        <h2 className="text-3xl font-bold text-center">Projets <span className="bg-linear-120 from-blue-600 via-blue-400 to-cyan-600 bg-clip-text text-transparent">Récents</span></h2>
-        <div className="grid grid-cols-2 gap-5 mt-4">
-          {/* il ya yn grand div qui porte les divs et chaque div portent deux divs */}
-          <div className="h-60 border">
-            <div className="border-amber-400 border h-1/2">
-              image des projets
-            </div>
-            <div className="border-red-400 border h-1/2">
-              Description
-            </div>
-          </div>
-          
-          <div className="h-60 border">
-            <div className="border-amber-400 border h-1/2">
-              image des projets
-            </div>
-            <div className="border-red-400 border h-1/2">
-              Description
-            </div>
-          </div>
-          
-          <div className="h-60 border">
-            <div className="border-amber-400 border h-1/2">
-              image des projets
-            </div>
-            <div className="border-red-400 border h-1/2">
-              Description
-            </div>
-          </div>
-          
-          <div className="h-60 border">
-            <div className="border-amber-400 border h-1/2">
-              image des projets
-            </div>
-            <div className="border-red-400 border h-1/2">
-              Description
-            </div>
-          </div>
+<section id="projets" className="min-h-screen px-6 py-10">
+  <h2 className="text-3xl font-bold text-center">
+    Projets{" "}
+    <span className="bg-linear-to-r from-blue-600 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+      Récents
+    </span>
+  </h2>
 
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+    {/* ==== CARD 1 ==== */}
+    <div className="rounded-2xl overflow-hidden bg-linear-to-br from-purple-900/80 via-purple-700/40 to-indigo-900/80 shadow-xl hover:scale-[1.02] duration-300 border border-white/10">
+      
+      {/* Image */}
+      <div className="relative h-40 bg-linear-to-r from-purple-700 to-purple-500 flex items-center justify-center">
+        <span className="text-white/70">Image du projet</span>
+
+        {/* Badges top-right */}
+        <div className="absolute top-3 right-3 flex gap-2">
+          <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full">
+            15k+
+          </span>
+          <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full">
+            4.9★
+          </span>
         </div>
-      </section>
+      </div>
+
+      {/* Description */}
+      <div className="p-5 text-white">
+        <h3 className="text-xl font-bold flex items-center gap-2">
+          E-Commerce Platform
+          <a href="#" className="text-purple-300 hover:text-white">↗</a>
+        </h3>
+
+        <p className="text-sm mt-2 text-white/70">
+          Plateforme complète avec paiement Stripe, gestion des stocks en temps réel
+          et dashboard administrateur.
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mt-4">
+          <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">React</span>
+          <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">Node.js</span>
+          <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">MongoDB</span>
+          <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">Stripe</span>
+        </div>
+      </div>
+    </div>
+
+    {/* ==== CARD 2 ==== */}
+    <div className="rounded-2xl overflow-hidden bg-linear-to-br from-indigo-800/80 via-blue-800/40 to-purple-900/80 shadow-xl hover:scale-[1.02] duration-300 border border-white/10">
+      
+      {/* Image */}
+      <div className="relative h-40 bg-linear-to-r from-blue-700 to-indigo-500 flex items-center justify-center">
+        <span className="text-white/70">Image du projet</span>
+
+        {/* Badges */}
+        <div className="absolute top-3 right-3 flex gap-2">
+          <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full">
+            50+
+          </span>
+          <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full">
+            2.1s
+          </span>
+        </div>
+      </div>
+
+      {/* Desc */}
+      <div className="p-5 text-white">
+        <h3 className="text-xl font-bold flex items-center gap-2">
+          Analytics Dashboard Pro
+          <a href="#" className="text-blue-300 hover:text-white">↗</a>
+        </h3>
+
+        <p className="text-sm mt-2 text-white/70">
+          Interface analytique avancée avec graphiques interactifs, export PDF et
+          prédictions IA.
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mt-4">
+          <span className="px-3 py-1 bg-blue-900/40 text-xs rounded-full border border-white/10">React</span>
+          <span className="px-3 py-1 bg-blue-900/40 text-xs rounded-full border border-white/10">D3.js</span>
+          <span className="px-3 py-1 bg-blue-900/40 text-xs rounded-full border border-white/10">Python</span>
+          <span className="px-3 py-1 bg-blue-900/40 text-xs rounded-full border border-white/10">TensorFlow</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 {/* ============================================================= */}
