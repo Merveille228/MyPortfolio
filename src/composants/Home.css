@@ -1,0 +1,32 @@
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #4f8cff, #bf7fff, #ff4fb3);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  z-index: -66;
+}
+.btn1 {
+  color: white;
+  border: none;
+  background:linear-gradient(145deg, rgb(72, 72, 197), rgb(102, 102, 204), cyan);
+}
+.btn2{
+  color: white;
+  border: white 1px solid;
+  background: rgb(29, 27, 27);
+}
+/* .cercle::before{
+  content: "";
+  width: 100px;
+  height: 100px;
+  border: 1px solid;
+  border-radius: 50%;
+  position: absolute;
+  z-index: -40;
+  margin-top: 45%;
+  margin-left: 30%;
+} */
