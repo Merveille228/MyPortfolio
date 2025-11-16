@@ -27,7 +27,7 @@ export default function Footer() {
 
       {/* COPYRIGHT */}
       <div className="text-center text-[13px] text-gray-300">
-        © 2024 Alexandre Dubois · Conçu et développé avec passion ❤️
+        © 2024 AMEVIGBE · Conçu et développé avec passion ❤️
       </div>
 
     </footer>
