@@ -108,13 +108,12 @@ export default function Home() {
       {/* Description */}
       <div className="p-5 text-white">
         <h3 className="text-xl font-bold flex items-center gap-2">
-          E-Commerce Platform
+          Euuuuuuuuuuuuuuuuuuuuuh
           <a href="#" className="text-purple-300 hover:text-white">↗</a>
         </h3>
 
         <p className="text-sm mt-2 text-white/70">
-          Plateforme complète avec paiement Stripe, gestion des stocks en temps réel
-          et dashboard administrateur.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, placeat. Delectus quae enim accusamus esse aperiam reiciendis ducimus quos quaerat! Voluptatum, distinctio vel ut ipsa velit iure exercitationem esse deserunt!
         </p>
 
         {/* Tags */}
@@ -148,13 +147,12 @@ export default function Home() {
       {/* Desc */}
       <div className="p-5 text-white">
         <h3 className="text-xl font-bold flex items-center gap-2">
-          Analytics Dashboard Pro
+          Générateur de citations
           <a href="#" className="text-blue-300 hover:text-white">↗</a>
         </h3>
 
         <p className="text-sm mt-2 text-white/70">
-          Interface analytique avancée avec graphiques interactifs, export PDF et
-          prédictions IA.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, id. Suscipit velit, alias nulla illo libero voluptatum voluptas culpa sunt repellendus recusandae voluptatem officiis possimus sequi omnis maiores dolorem accusamus.
         </p>
 
         {/* Tags */}
@@ -196,9 +194,17 @@ export default function Home() {
           <div className="border w-20 h-20 rounded-3xl"></div>
         </div>
 
-        <div className="flex justify-center">
-          <button className="btn mt-3 bg-linear-120 from-blue-600 via-blue-700 to-cyan-600 p-6 rounded-2xl">merveilleamevigbe@gmail.com</button>
-        </div>
+        {/* EMAIL BUTTON */}
+      <div className="flex justify-center mb-16">
+        <a
+          href="mailto:merveilleamevigbe2@gmail.com"
+          className="mt-6 px-6 py-4 rounded-xl text-white font-bold text-lg 
+                     bg-linear-to-r from-blue-600 via-blue-400 to-cyan-500
+                     shadow-lg shadow-blue-800/40"
+        >
+          merveilleamevigbe2@gmail.com
+        </a>
+      </div>
       </section>
     </>
   );
