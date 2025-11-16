@@ -15,7 +15,7 @@ export default function Home() {
     <>
       {/* ============================================================= */}
       {/* acceuil */}
-      <section id="accueil" className="h-screen mt-38 ml-5">
+      <section id="accueil" className="h-screen mt-38 pl-5">
         
         <div className="cercle" >
           <img
@@ -172,7 +172,7 @@ export default function Home() {
       {/* compétences */}
       <section
         id="competences"
-        className="h-screen ml-5"
+        className="h-screen pl-5"
       >
         <h2 className="text-3xl font-bold text-center"><span className="bg-linear-120 from-blue-600 via-blue-400 to-cyan-600 bg-clip-text text-transparent">Compétences</span> & Expertise</h2>
         <p className="text-center text-[10px] mt-2"> Technologies et outils que je maitrise</p>
@@ -181,10 +181,10 @@ export default function Home() {
           <div className="h-60 border"></div>
         </div>
       </section>
-
+{/* contac */}
       <section
         id="contact"
-        className="h-80 ml-5"
+        className="h-80 w-screen"
       >
         <h2 className="text-3xl font-bold text-center">Créons quelque chose <span className="bg-linear-120 from-blue-600 via-blue-400 to-cyan-600 bg-clip-text text-transparent">d'incroyable ensemble</span></h2>
         <p className="text-center text-[10px] mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex, fuga voluptate</p>
@@ -205,6 +205,29 @@ export default function Home() {
           merveilleamevigbe2@gmail.com
         </a>
       </div>
+      <div className="w-screen text-white pt-16 pb-10">
+  <div className="w-screen text-center text-2xl font-bold mb-5">AD</div>
+  <div className="flex justify-center gap-10 text-sm mb-8">
+    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+      GitHub
+    </a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+      LinkedIn
+    </a>
+    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+      Twitter
+    </a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+      Instagram
+    </a>
+  </div>
+  <div className="text-center text-[13px] text-gray-300">
+    © 2026 AMEVIGBE · Conçu et développé avec passion ❤️
+  </div>
+</div> 
+      </section>
+      <section>
+        
       </section>
     </>
   );
