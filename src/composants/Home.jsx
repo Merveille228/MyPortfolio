@@ -15,66 +15,71 @@ export default function Home() {
     <>
       {/* ============================================================= */}
       {/* acceuil */}
-      <section id="accueil" className="h-screen mt-38 pl-5">
-        
-        <div className="cercle" >
-          <img
-            className="absolute w-50 h-100 top-20 right-0 rounded-3xl -z-50"
-            src={moiImage}
-            alt="photo"
-          />
-        </div>
-        <div className="mt-10 flex justify-center items-center space-x-2 border w-40 text-[10px] rounded-2xl border-indigo-200 bg-indigo-300 cursor-pointer">
-          <Stars className="w-3 text-cyan-800" />
-          <p className="text-cyan-900 font-bold"> DEVELOPPEUR FULLSTACK</p>
-        </div>
+      <section
+  id="accueil"
+  className="h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 mt-20"
+>
+  {/* === Texte (gauche desktop / haut mobile) === */}
+  <div className="md:w-1/2 space-y-6">
+    {/* Badge */}
+    <div className="flex justify-start items-center space-x-2 border w-60 text-sm rounded-2xl border-indigo-200 bg-indigo-300 cursor-pointer">
+      <Stars className="w-4 text-cyan-800" />
+      <p className="text-cyan-900 font-bold">DEVELOPPEUR FULLSTACK</p>
+    </div>
 
-        <p className="mt-4 text-2xl font-bold">
-          Bonjour, je suis{" "}
-          <span className="text-3xl block bg-linear-120 from-blue-600 via-blue-400 to-cyan-600 bg-clip-text text-transparent mb-4">
-            Komlavi Merveille AMEVIGBE
-          </span>
-        </p>
-        <p className="mb-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptates
-          suscipit sed eos nihil magnam doloribus tenetur cumque obcaecati rem,
-          quo eius nulla ipsa dignissimos adipisci asperiores provident dolorum
-          illum?
-        </p>
-        <div>
-          <button className="btn btn1 btn-accent mr-4">
-            Voir mes projets{" "}
-            <span>
-              <ArrowUpRight className="w-4" />
-            </span>
-          </button>
-          <button className="btn btn2">Me contacter</button>
-        </div>
-        <div className="flex justify-between mt-5 ml-3">
-          <SquareTerminal className="w-5" />
-          <Medal className="w-5" />
-          <Coffee className="w-5" />
-          <Heart className="w-5" />
-        </div>
-        <div className="flex justify-around w-screen mt-3">
-          <div className="flex flex-col text-center">
-            <p>50+</p>
-            <p className="text-[10px]">Projets realisés</p>
-          </div>
-          <div className="flex flex-col text-center">
-            <p>5+</p>
-            <p className="text-[10px]">Année d'expériences</p>
-          </div>
-          <div className="flex flex-col text-center">
-            <p>∞</p>
-            <p className="text-[10px]">Café bus</p>
-          </div>
-          <div className="flex flex-col text-center">
-            <p>100%</p>
-            <p className="text-[10px]">Passion</p>
-          </div>
-        </div>
-      </section>
+    {/* Titre */}
+    <h1 className="text-3xl md:text-5xl font-bold">
+      Bonjour, je suis{" "}
+      <span className="text-4xl md:text-6xl block bg-linear-120 from-blue-600 via-blue-400 to-cyan-600 bg-clip-text text-transparent mb-4">
+        Komlavi Merveille AMEVIGBE
+      </span>
+    </h1>
+
+    {/* Description */}
+    <p className="text-sm md:text-base text-gray-300">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptates
+      suscipit sed eos nihil magnam doloribus tenetur cumque obcaecati rem.
+    </p>
+
+    {/* Boutons */}
+    <div className="flex flex-wrap gap-4 mt-4">
+      <button className="btn btn1 btn-accent flex items-center gap-2">
+        Voir mes projets <ArrowUpRight className="w-4" />
+      </button>
+      <button className="btn btn2">Me contacter</button>
+    </div>
+
+    {/* Stats – cachées sur mobile */}
+    <div className="hidden md:flex justify-start mt-6 gap-10">
+      <div className="flex flex-col text-center">
+        <p className="text-xl font-bold">50+</p>
+        <p className="text-xs text-gray-400">Projets réalisés</p>
+      </div>
+      <div className="flex flex-col text-center">
+        <p className="text-xl font-bold">5+</p>
+        <p className="text-xs text-gray-400">Années d'expérience</p>
+      </div>
+      <div className="flex flex-col text-center">
+        <p className="text-xl font-bold">∞</p>
+        <p className="text-xs text-gray-400">Café bus</p>
+      </div>
+      <div className="flex flex-col text-center">
+        <p className="text-xl font-bold">100%</p>
+        <p className="text-xs text-gray-400">Passion</p>
+      </div>
+    </div>
+  </div>
+
+  {/* === Image (droite desktop / bas mobile) === */}
+  <div className="md:w-1/2 relative flex justify-center md:justify-end mt-10 md:mt-0">
+    <img
+      src={moiImage}
+      alt="Moi"
+      className="w-60 h-auto md:w-96 rounded-3xl shadow-lg"
+    />
+  </div>
+</section>
+
 
 {/* ============================================================= */}
       {/* projet */}
@@ -172,7 +177,7 @@ export default function Home() {
       {/* compétences */}
       <section
         id="competences"
-        className="h-screen pl-5"
+        className="h-screen"
       >
         <h2 className="text-3xl font-bold text-center"><span className="bg-linear-120 from-blue-600 via-blue-400 to-cyan-600 bg-clip-text text-transparent">Compétences</span> & Expertise</h2>
         <p className="text-center text-[10px] mt-2"> Technologies et outils que je maitrise</p>
