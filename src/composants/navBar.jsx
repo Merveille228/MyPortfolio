@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  // 🔥 Gestion du thème DaisyUI
+  //  Gestion du thème DaisyUI
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
@@ -116,7 +116,7 @@ export default function Navbar() {
             {links.map((link) => (
               <li
                 key={link.id}
-                className="text-gray-700 font-medium hover:text-blue-600 cursor-pointer transition"
+                className=" font-medium hover:text-blue-600 cursor-pointer transition"
                 onClick={() => {
                   setOpen(false);
                   setTimeout(() => scrollToSection(link.id), 150); // 🔥 CORRECTION ICI
