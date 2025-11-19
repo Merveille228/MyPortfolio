@@ -3,20 +3,43 @@ import "./Home.css";
 import {
   Stars,
   ArrowUpRight,
-  Medal,
-  SquareTerminal,
-  Coffee,
-  Heart,
+  Mail,
+  PhoneCall,
+  Linkedin,
+  Github,
 } from "lucide-react";
 const scrollToSection = () => {
-    const projets = document.getElementById(projets);
-    if (projets) {
-      projets.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const projets = document.getElementById(projets);
+  if (projets) {
+    projets.scrollIntoView({ behavior: "smooth" });
+  }
+};
 import moiImage from "../assets/moi.png";
 
 export default function Home() {
+  const contactCards = [
+    {
+      label: "Email",
+      detail: "Réponse sous 24h",
+      value: "merveilleamevigbe2@gmail.com",
+      href: "mailto:merveilleamevigbe2@gmail.com",
+      icon: Mail,
+    },
+    {
+      label: "LinkedIn",
+      detail: "Profil & réseau",
+      value: "pas encore definie",
+      href: "https://linkedin.com",
+      icon: Linkedin,
+    },
+    {
+      label: "Téléphone",
+      detail: "Disponible en journée",
+      value: "+228 91 24 29 86",
+      href: "tel:+22891242986",
+      icon: PhoneCall,
+    },
+  ];
   return (
     <>
       {/* ============================================================= */}
@@ -50,9 +73,9 @@ export default function Home() {
 
           {/* Boutons */}
           <div className="flex flex-wrap gap-4 mt-4">
-            <button 
-            className="btn btn1 btn-accent flex items-center gap-2"
-            onClick={() => scrollToSection()}
+            <button
+              className="btn btn1 btn-accent flex items-center gap-2"
+              onClick={() => scrollToSection()}
             >
               Voir mes projets <ArrowUpRight className="w-4" />
             </button>
@@ -307,45 +330,171 @@ export default function Home() {
 
       {/* ============================================================= */}
       {/* compétences */}
-      <section id="competences" className="h-screen">
-        <h2 className="text-3xl font-bold text-center">
-          <span className="bg-linear-120 from-blue-600 via-blue-400 to-cyan-600 bg-clip-text text-transparent">
-            Compétences
-          </span>{" "}
-          & Expertise
-        </h2>
-        <p className="text-center text-[10px] mt-2">
-          {" "}
-          Technologies et outils que je maitrise
-        </p>
-        <div className="grid grid-cols-2 gap-4 mt-4">
-          <div className="h-60 border"></div>
-          <div className="h-60 border"></div>
+      <section
+        id="competences"
+        className="min-h-screen px-6 md:px-20 py-16 bg-linear-to-b from-slate-900/30 via-slate-900/10 to-transparent"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              <span className="bg-linear-120 from-blue-600 via-blue-400 to-cyan-600 bg-clip-text text-transparent">
+                Compétences
+              </span>{" "}
+              & Expertise
+            </h2>
+            <p className="text-sm text-gray-300 max-w-2xl mx-auto">
+              Un mélange équilibré entre approche produit, maîtrise technique et
+              sens du détail pour livrer des expériences modernes et
+              performantes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-12">
+            {/* Aperçu général */}
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-6 shadow-[0_20px_45px_-25px_rgba(15,23,42,1)] backdrop-blur">
+              <p className="text-xs uppercase tracking-[0.3em] text-cyan-300">
+                Vision globale
+              </p>
+              <h3 className="text-2xl font-semibold mt-2">
+                Stack moderne orientée produit
+              </h3>
+              <p className="text-sm text-gray-300 mt-4">
+                Architecture front-to-back, automatisation, et suivi qualité
+                pour transformer les idées en produits élégants et fiables.
+              </p>
+
+              <div className="mt-6 space-y-4">
+                {[
+                  {
+                    title: "Front-end",
+                    detail: "React · Next · Tailwind · Animations",
+                  },
+                  { title: "Back-end", detail: "Node · Nest · Prisma · REST" },
+                  { title: "Craft", detail: "Design systems · Tests · CI/CD" },
+                ].map((item, index) => (
+                  <div
+                    key={item.title}
+                    className="p-4 rounded-2xl bg-slate-900/40 border border-white/5"
+                  >
+                    <p className="text-xs text-gray-400">{`0${index + 1}`}</p>
+                    <p className="font-semibold">{item.title}</p>
+                    <p className="text-sm text-gray-300">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Barres de progression */}
+            <div className="lg:col-span-2 space-y-8">
+              {[
+                {
+                  category: "Compétences principales",
+                  skills: [
+                    { label: "React & Écosystème", level: "90%" },
+                    { label: "Node / API REST", level: "85%" },
+                    { label: "UI Design System", level: "80%" },
+                    { label: "Tests & Qualité", level: "75%" },
+                  ],
+                },
+                {
+                  category: "Compétences transverses",
+                  skills: [
+                    { label: "Gestion de projet agile", level: "70%" },
+                    { label: "Coaching & mentoring", level: "65%" },
+                    { label: "Veille technologique", level: "80%" },
+                  ],
+                },
+              ].map((group) => (
+                <div
+                  key={group.category}
+                  className="bg-white/5 border border-white/10 rounded-3xl p-6 shadow-[0_25px_50px_-30px_rgba(15,23,42,1)] backdrop-blur"
+                >
+                  <p className="text-xs uppercase tracking-[0.4em] text-cyan-300">
+                    {group.category}
+                  </p>
+                  <div className="mt-6 space-y-5">
+                    {group.skills.map((skill) => (
+                      <div key={skill.label}>
+                        <div className="flex items-center justify-between text-sm text-gray-200 mb-2">
+                          <span className="font-medium">{skill.label}</span>
+                          <span className="text-gray-400">{skill.level}</span>
+                        </div>
+                        <div className="h-2.5 rounded-full bg-white/5 overflow-hidden">
+                          <div
+                            className="h-full rounded-full bg-linear-to-r from-blue-600 via-blue-400 to-cyan-400 duration-700"
+                            style={{ width: skill.level }}
+                          ></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
       {/* contac */}
-      <section id="contact" className="h-80 ">
-        <h2 className="text-3xl font-bold text-center">
-          Créons quelque chose{" "}
-          <span className="bg-linear-120 from-blue-600 via-blue-400 to-cyan-600 bg-clip-text text-transparent">
-            d'incroyable ensemble
-          </span>
-        </h2>
-        <p className="text-center text-[10px] mt-3">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex, fuga
-          voluptate
-        </p>
-        <div className="flex justify-center mt-4 gap-5">
-          <div className="border w-20 h-20 rounded-3xl"></div>
-          <div className="border w-20 h-20 rounded-3xl"></div>
-          <div className="border w-20 h-20 rounded-3xl"></div>
+      <section
+        id="contact"
+        className="px-6 md:px-20 py-20 bg-slate-950/20 space-y-10"
+      >
+        <div className="text-center">
+          <p className="text-xs uppercase tracking-[0.4em] text-cyan-300">
+            Contact
+          </p>
+          <h2 className="text-3xl font-bold mt-2">
+            Créons quelque chose{" "}
+            <span className="bg-linear-120 from-blue-600 via-blue-400 to-cyan-600 bg-clip-text text-transparent">
+              d'incroyable ensemble
+            </span>
+          </h2>
+          <p className="text-sm text-gray-300 mt-3 max-w-2xl mx-auto">
+            Choisissez le canal qui vous convient pour discuter d’un projet,
+            d’une mission ou simplement échanger sur vos idées.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {contactCards.map((card) => {
+            const IconComponent = card.icon;
+            return (
+              <a
+                key={card.label}
+                href={card.href}
+                target={card.href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  card.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                className="group border border-white/10 rounded-3xl p-6 bg-white/5 backdrop-blur flex flex-col gap-4 hover:border-cyan-400/60 hover:bg-white/10 transition"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-linear-to-r from-blue-600/70 to-cyan-500/70 flex items-center justify-center text-white shadow-lg shadow-blue-800/40 group-hover:scale-105 transition">
+                  <IconComponent className="w-5 h-5" />
+                </div>
+                <div className="space-y-1">
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-400">
+                    {card.label}
+                  </p>
+                  <p className="text-lg font-semibold text-white">
+                    {card.value}
+                  </p>
+                  <p className="text-sm text-gray-400">{card.detail}</p>
+                </div>
+                <span className="text-sm text-cyan-300 font-semibold">
+                  {card.label === "Email" ? "Écrire un message ↗" : "Ouvrir ↗"}
+                </span>
+              </a>
+            );
+          })}
         </div>
 
         {/* EMAIL BUTTON */}
-        <div className="flex justify-center mb-16">
+        <div className="flex justify-center">
           <a
             href="mailto:merveilleamevigbe2@gmail.com"
-            className="mt-6 px-6 py-4 rounded-xl text-white font-bold text-lg 
+            className="mt-2 px-6 py-4 rounded-xl text-white font-bold text-lg 
                      bg-linear-to-r from-blue-600 via-blue-400 to-cyan-500
                      shadow-lg shadow-blue-800/40"
           >
@@ -355,45 +504,49 @@ export default function Home() {
       </section>
 
       {/* footer */}
-      <section>
-        <div className="pt-16 pb-10">
-          <p className="text-center text-2xl font-bold mb-5">AKIM</p>
-          <div className="flex justify-center gap-10 text-sm mb-8">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              Twitter
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              Instagram
-            </a>
+      <section className="border-t border-white/10 bg-slate-950/30">
+        <div className="px-6 md:px-20 py-12 flex flex-col gap-6 md:gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-2xl font-bold">AKIM</p>
+            <p className="text-sm text-gray-400">
+              Designer & Développeur Fullstack
+            </p>
           </div>
-          <div className="text-center text-[13px]">
-            © 2026 AMEVIGBE · Conçu et développé avec passion ❤️
+          <div className="flex flex-wrap gap-4 text-sm">
+            {[
+              {
+                label: "GitHub",
+                href: "https://www.github.com/Merveille228",
+                icon: Github,
+              },
+              {
+                label: "LinkedIn",
+                href: "https://linkedin.com",
+                icon: Linkedin,
+              },
+              { label: "Portfolio", href: "#accueil", icon: Stars },
+            ].map((link) => {
+              const IconComponent = link.icon;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    link.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 hover:border-cyan-400/60 transition"
+                >
+                  <IconComponent className="w-4 h-4" />
+                  {link.label}
+                </a>
+              );
+            })}
+          </div>
+          <div className="text-[13px] text-gray-400">
+            © 2026 AMEVIGBE · Conçu et développé avec passion
           </div>
         </div>
       </section>
