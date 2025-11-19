@@ -8,15 +8,23 @@ import {
   Linkedin,
   Github,
 } from "lucide-react";
-const scrollToSection = () => {
-  const projets = document.getElementById(projets);
-  if (projets) {
-    projets.scrollIntoView({ behavior: "smooth" });
+const scrollToSection = (sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
   }
 };
 import moiImage from "../assets/moi.png";
+import capture134027 from "../assets/Capture d'écran 2025-11-19 134027.png";
+import capture134316 from "../assets/Capture d'écran 2025-11-19 134316.png";
+import capture133921 from "../assets/Capture d'écran 2025-11-19 133921.png";
+import capture134121 from "../assets/Capture d'écran 2025-11-19 134121.png";
 
 export default function Home() {
+  const [expandedCard, setExpandedCard] = React.useState(null);
+  const toggleCard = (id) => {
+    setExpandedCard((prev) => (prev === id ? null : id));
+  };
   const contactCards = [
     {
       label: "Email",
@@ -66,16 +74,16 @@ export default function Home() {
 
           {/* Description */}
           <p className="text-sm md:text-base text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-            voluptates suscipit sed eos nihil magnam doloribus tenetur cumque
-            obcaecati rem.
+            J’aide les entreprises et startups à concevoir des interfaces
+            élégantes, performantes et orientées résultats, du prototype jusqu’à
+            la mise en production.
           </p>
 
           {/* Boutons */}
           <div className="flex flex-wrap gap-4 mt-4">
             <button
               className="btn btn1 btn-accent flex items-center gap-2"
-              onClick={() => scrollToSection()}
+              onClick={() => scrollToSection("projets")}
             >
               Voir mes projets <ArrowUpRight className="w-4" />
             </button>
@@ -85,11 +93,11 @@ export default function Home() {
           {/* Stats – */}
           <div className="flex md:flex justify-start mt-6 gap-10">
             <div className="flex flex-col text-center">
-              <p className="text-xl font-bold">50+</p>
+              <p className="text-xl font-bold">5+</p>
               <p className="text-[10px] text-gray-400">Projets réalisés</p>
             </div>
             <div className="flex flex-col text-center">
-              <p className="text-xl font-bold">5+</p>
+              <p className="text-xl font-bold">1+</p>
               <p className="text-xs text-gray-400">Années d'expérience</p>
             </div>
             <div className="flex flex-col text-center">
@@ -115,8 +123,8 @@ export default function Home() {
 
       {/* ============================================================= */}
       {/* projet */}
-      <section id="projets" className="min-h-screen px-6 py-10">
-        <h2 className="text-3xl font-bold text-center">
+      <section id="projets" className="min-h-screen mt-10 px-6 py-10">
+        <h2 className="text-3xl font-bold text-center z-90">
           Projets{" "}
           <span className="bg-linear-to-r from-blue-600 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
             Récents
@@ -125,11 +133,19 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
           {/* ==== CARD 1 ==== */}
-          <div className="rounded-2xl overflow-hidden bg-linear-to-br from-purple-900/80 via-purple-700/40 to-indigo-900/80 shadow-xl hover:scale-[1.02] duration-300 border border-white/10">
+          <div
+            className={`project-card rounded-2xl overflow-hidden bg-linear-to-br from-purple-900/80 via-purple-700/40 to-indigo-900/80 shadow-xl hover:scale-[1.02] duration-300 border border-white/10 ${
+              expandedCard === "card-1" ? "expanded" : ""
+            }`}
+            onClick={() => toggleCard("card-1")}
+          >
             {/* Image */}
-            <div className="relative h-40 bg-linear-to-r from-purple-700 to-purple-500 flex items-center justify-center">
-              <span className="text-white/70">Image du projet</span>
-
+            <div className="project-card__media relative h-40 bg-linear-to-r from-purple-700 to-purple-500 flex items-center justify-center overflow-hidden">
+              <img
+                src={capture134027}
+                alt="Interface du générateur de citations"
+                className="w-full h-full object-cover"
+              />
               {/* Badges top-right */}
               <div className="absolute top-3 right-3 flex gap-2">
                 <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full">
@@ -142,44 +158,52 @@ export default function Home() {
             </div>
 
             {/* Description */}
-            <div className="p-5 text-white">
+            <div className="project-card__content p-5 text-white">
               <h3 className="text-xl font-bold flex items-center gap-2">
-                Euuuuuuuuuuuuuuuuuuuuuh
+                Générateur de citations
                 <a href="#" className="text-purple-300 hover:text-white">
                   ↗
                 </a>
               </h3>
 
-              <p className="text-sm mt-2 text-white/70">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Dolorum, placeat. Delectus quae enim accusamus esse aperiam
-                reiciendis ducimus quos quaerat! Voluptatum, distinctio vel ut
-                ipsa velit iure exercitationem esse deserunt!
+              <p className="project-card__description text-sm mt-2 text-white/70">
+                Application web qui pioche des citations inspirantes, permet de
+                filtrer par thématique et copie automatiquement la citation dans
+                le presse-papiers pour alimenter les réseaux sociaux en un clic.
               </p>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-4">
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  React
+                  html 
                 </span>
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  Node.js
+                  css
                 </span>
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  MongoDB
+                  js
                 </span>
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  Stripe
+                  react
                 </span>
               </div>
             </div>
           </div>
 
           {/* ==== CARD 2 ==== */}
-          <div className="rounded-2xl overflow-hidden bg-linear-to-br from-indigo-800/80 via-blue-800/40 to-purple-900/80 shadow-xl hover:scale-[1.02] duration-300 border border-white/10">
+          <div
+            className={`project-card rounded-2xl overflow-hidden bg-linear-to-br from-indigo-800/80 via-blue-800/40 to-purple-900/80 shadow-xl hover:scale-[1.02] duration-300 border border-white/10 ${
+              expandedCard === "card-2" ? "expanded" : ""
+            }`}
+            onClick={() => toggleCard("card-2")}
+          >
             {/* Image */}
-            <div className="relative h-40 bg-linear-to-r from-blue-700 to-indigo-500 flex items-center justify-center">
-              <span className="text-white/70">Image du projet</span>
+            <div className="project-card__media relative h-40 bg-linear-to-r from-blue-700 to-indigo-500 flex items-center justify-center overflow-hidden">
+              <img
+                src={capture134316}
+                alt="Prototype de Paint Plus"
+                className="w-full h-full object-cover"
+              />
 
               {/* Badges */}
               <div className="absolute top-3 right-3 flex gap-2">
@@ -193,43 +217,51 @@ export default function Home() {
             </div>
 
             {/* Desc */}
-            <div className="p-5 text-white">
+            <div className="project-card__content p-5 text-white">
               <h3 className="text-xl font-bold flex items-center gap-2">
-                Générateur de citations
+                Paint plus
                 <a href="#" className="text-blue-300 hover:text-white">
                   ↗
                 </a>
               </h3>
 
-              <p className="text-sm mt-2 text-white/70">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Possimus, id. Suscipit velit, alias nulla illo libero voluptatum
-                voluptas culpa sunt repellendus recusandae voluptatem officiis
-                possimus sequi omnis maiores dolorem accusamus.
+              <p className="project-card__description text-sm mt-2 text-white/70">
+                Atelier de dessin numérique avec outils de pinceau personnalisés,
+                export PNG instantané et historique des couches pour revenir sur
+                chaque étape de la création.
               </p>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-4">
                 <span className="px-3 py-1 bg-blue-900/40 text-xs rounded-full border border-white/10">
-                  React
+                  html
                 </span>
                 <span className="px-3 py-1 bg-blue-900/40 text-xs rounded-full border border-white/10">
-                  D3.js
+                  js
                 </span>
                 <span className="px-3 py-1 bg-blue-900/40 text-xs rounded-full border border-white/10">
-                  Python
+                  css
                 </span>
                 <span className="px-3 py-1 bg-blue-900/40 text-xs rounded-full border border-white/10">
-                  TensorFlow
+                  canvas
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="rounded-2xl overflow-hidden bg-linear-to-br from-purple-900/80 via-purple-700/40 to-indigo-900/80 shadow-xl hover:scale-[1.02] duration-300 border border-white/10">
+          <div
+            className={`project-card rounded-2xl overflow-hidden bg-linear-to-br from-purple-900/80 via-purple-700/40 to-indigo-900/80 shadow-xl hover:scale-[1.02] duration-300 border border-white/10 ${
+              expandedCard === "card-3" ? "expanded" : ""
+            }`}
+            onClick={() => toggleCard("card-3")}
+          >
             {/* Image */}
-            <div className="relative h-40 bg-linear-to-r from-purple-700 to-purple-500 flex items-center justify-center">
-              <span className="text-white/70">Image du projet</span>
+            <div className="project-card__media relative h-40 bg-linear-to-r from-purple-700 to-purple-500 flex items-center justify-center overflow-hidden">
+              <img
+                src={capture133921}
+                alt="Site du cabinet COMPETENT"
+                className="w-full h-full object-cover"
+              />
 
               {/* Badges top-right */}
               <div className="absolute top-3 right-3 flex gap-2">
@@ -243,44 +275,51 @@ export default function Home() {
             </div>
 
             {/* Description */}
-            <div className="p-5 text-white">
+            <div className="project-card__content p-5 text-white">
               <h3 className="text-xl font-bold flex items-center gap-2">
-                Euuuuuuuuuuuuuuuuuuuuuh
+                Site pour le Cabinet COMPETENT
                 <a href="#" className="text-purple-300 hover:text-white">
                   ↗
                 </a>
               </h3>
 
-              <p className="text-sm mt-2 text-white/70">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Dolorum, placeat. Delectus quae enim accusamus esse aperiam
-                reiciendis ducimus quos quaerat! Voluptatum, distinctio vel ut
-                ipsa velit iure exercitationem esse deserunt!
+              <p className="project-card__description text-sm mt-2 text-white/70">
+                Plateforme corporate vitrine avec parcours patient fluide,
+                formulaires dynamiques et bloc actualités pour valoriser
+                l’expertise du cabinet COMPETENT.
               </p>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-4">
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  React
+                  html
                 </span>
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  Node.js
+                  css
                 </span>
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  MongoDB
+                  js
                 </span>
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  Stripe
+                  php
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="rounded-2xl overflow-hidden bg-linear-to-br from-purple-900/80 via-purple-700/40 to-indigo-900/80 shadow-xl hover:scale-[1.02] duration-300 border border-white/10">
+          <div
+            className={`project-card rounded-2xl overflow-hidden bg-linear-to-br from-purple-900/80 via-purple-700/40 to-indigo-900/80 shadow-xl hover:scale-[1.02] duration-300 border border-white/10 ${
+              expandedCard === "card-4" ? "expanded" : ""
+            }`}
+            onClick={() => toggleCard("card-4")}
+          >
             {/* Image */}
-            <div className="relative h-40 bg-linear-to-r from-purple-700 to-purple-500 flex items-center justify-center">
-              <span className="text-white/70">Image du projet</span>
-
+            <div className="project-card__media relative h-40 bg-linear-to-r from-purple-700 to-purple-500 flex items-center justify-center overflow-hidden">
+              <img
+                src={capture134121}
+                alt="Jeu pierre papier ciseaux"
+                className="w-full h-full object-cover"
+              />
               {/* Badges top-right */}
               <div className="absolute top-3 right-3 flex gap-2">
                 <span className="bg-black/60 text-white text-xs px-3 py-1 rounded-full">
@@ -293,34 +332,32 @@ export default function Home() {
             </div>
 
             {/* Description */}
-            <div className="p-5 text-white">
+            <div className="project-card__content p-5 text-white">
               <h3 className="text-xl font-bold flex items-center gap-2">
-                Euuuuuuuuuuuuuuuuuuuuuh
+                Jeux pierre papier ciseau
                 <a href="#" className="text-purple-300 hover:text-white">
                   ↗
                 </a>
               </h3>
 
-              <p className="text-sm mt-2 text-white/70">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Dolorum, placeat. Delectus quae enim accusamus esse aperiam
-                reiciendis ducimus quos quaerat! Voluptatum, distinctio vel ut
-                ipsa velit iure exercitationem esse deserunt!
+              <p className="project-card__description text-sm mt-2 text-white/70">
+                Mini-jeu pierre‑papier‑ciseaux avec animations, score en temps
+                réel et logique IA qui s’adapte aux coups précédents du joueur.
               </p>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-4">
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  React
+                  html
                 </span>
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  Node.js
+                  css
                 </span>
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  MongoDB
+                  js
                 </span>
                 <span className="px-3 py-1 bg-purple-900/40 text-xs rounded-full border border-white/10">
-                  Stripe
+                  gameplay
                 </span>
               </div>
             </div>

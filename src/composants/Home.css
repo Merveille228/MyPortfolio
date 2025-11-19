@@ -19,6 +19,59 @@
   border: white 1px solid;
   background: rgb(29, 27, 27);
 }
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  min-height: 320px;
+}
+
+.project-card__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.project-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.project-card:hover .project-card__media img,
+.project-card.expanded .project-card__media img {
+  transform: scale(1.05);
+}
+
+.project-card__content {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: inherit;
+  background: linear-gradient(180deg, rgba(12, 10, 30, 0) 0%, rgba(5, 5, 10, 0.9) 80%);
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease,
+    padding 0.3s ease;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.project-card:hover .project-card__content,
+.project-card.expanded .project-card__content {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  max-height: 0;
+  padding: 0;
+  min-height: 0;
+}
 /* .cercle::before{
   content: "";
   width: 100px;
