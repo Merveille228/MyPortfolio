@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import Loader from "./Loader";
 import {
   Stars,
   ArrowUpRight,
@@ -48,6 +49,19 @@ export default function Home() {
       icon: PhoneCall,
     },
   ];
+  const [loading, setLoading] = React.useState(true);
+
+React.useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 1500); // durée du chargement
+
+  return () => clearTimeout(timer);
+}, []);
+if (loading) {
+  return <Loader />;
+}
+
   return (
     <>
       {/* ============================================================= */}
