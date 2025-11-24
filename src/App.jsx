@@ -17,7 +17,7 @@ function App() {
     // Suppression du loader après la transition (fade)
     const timer2 = setTimeout(() => {
       setLoading(false);
-    }, 2700); // 2s + 0.7s (transition fade)
+    }, 2000); // 2s (transition fade)
 
     return () => {
       clearTimeout(timer1);
